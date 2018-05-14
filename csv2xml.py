@@ -60,12 +60,11 @@ for row in csv_f:
     im = Image.open(folder + "/" + row[0])
     width, height = im.size
     data = convertRow(row, folder, width, height)
-    if os.path.isfile(row[0] + ".xml"):
-        f = open(row[0] + "1.xml", "w+")
-        f.write(data)
-        f.close()
-        continue
+    xml = os.path.join(output, row[0])
+    count = None
+    while os.path.isfile(xml + count + ".xml"):
+        count += 1
 
-    f = open(row[0] + ".xml", "w+")
+    f = open(xml + count + ".xml", "w+")
     f.write(data)
     f.close()
