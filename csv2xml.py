@@ -52,7 +52,7 @@ def convertRow(r, f, w, h):
                 <ymax>"%s"</ymax>
             </bndbox>
         </object>
-    </annotation>""" % (f, r[0], w, h, r[6], r[1], r[2], r[3], r[4])
+    </annotation>""" % (f, r[0], w, h, r[6], r[1], r[2], r[1] + r[3], r[2] + r[4])
 
 
 for row in csv_f:
