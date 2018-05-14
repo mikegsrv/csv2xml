@@ -38,29 +38,29 @@ def convertRow(r, f, w, h):
     return """
     <?xml version="1.0"?>
     <annotation>
-        <folder>"%s"</folder>
-        <filename>"%s"</filename>
+        <folder>%s</folder>
+        <filename>%s</filename>
         <size>
-            <width>"%s"</width>
-            <height>"%s"</height>
+            <width>%s</width>
+            <height>%s</height>
         </size>
         <object>
-            <name>"%s"</name>
+            <name>%s</name>
             <bndbox>
-                <xmin>"%s"</xmin>
-                <ymin>"%s"</ymin>
-                <xmax>"%s"</xmax>
-                <ymax>"%s"</ymax>
+                <xmin>%s</xmin>
+                <ymin>%s</ymin>
+                <xmax>%s</xmax>
+                <ymax>%s</ymax>
             </bndbox>
         </object>
-    </annotation>""" % (f, r[0], w, h, r[6], r[1], r[2], r[1] + r[3], r[2] + r[4])
+    </annotation>""" % (f, r[0], w, h, r[6], r[1], r[2], int(r[1]) + int(r[3]), int(r[2]) + int(r[4]))
 
 
 for row in csv_f:
     im = Image.open(folder + "/" + row[0])
     width, height = im.size
     data = convertRow(row, folder, width, height)
-    xml = os.path.join(output, row[0])
+    xml = os.path.join(output, row[0][:-4])
     count = ''
     while os.path.isfile(xml + count + ".xml"):
         count += '_1'
