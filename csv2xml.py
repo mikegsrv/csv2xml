@@ -61,8 +61,8 @@ for row in csv_f:
     width, height = im.size
     data = convertRow(row, folder, width, height)
     xml = os.path.join(output, row[0])
-    count = None
-    while os.path.isfile(xml + count + ".xml"):
+    count = ""
+    while os.path.isfile(xml + str(count) + ".xml"):
         count += 1
 
     f = open(xml + count + ".xml", "w+")
