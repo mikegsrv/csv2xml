@@ -4,7 +4,7 @@ import argparse
 import os
 from PIL import Image
 
-
+#TODO: add progress status
 example_text = '''Usage: python[3] csv2xml.py csvfile.csv /path/to/images /output/folder'''
 descript="""Python script created to parse CSV file provided with
 Russian Traffic Signs Dataset (RTSD) to XML files needed by
@@ -31,6 +31,7 @@ if not os.path.exists(output):
     os.makedirs(output)
 
 csv_f = csv.reader(f)
+next(csv_f, None)
 
 
 def convertRow(r, f, w, h):
