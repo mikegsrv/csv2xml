@@ -35,8 +35,7 @@ next(csv_f, None)
 
 
 def convertRow(r, f, w, h):
-    return """
-    <?xml version="1.0"?>
+    return """<?xml version="1.0"?>
     <annotation>
         <folder>%s</folder>
         <filename>%s</filename>
@@ -53,7 +52,7 @@ def convertRow(r, f, w, h):
                 <ymax>%s</ymax>
             </bndbox>
         </object>
-    </annotation>""" % (f, r[0], w, h, r[6], r[1], r[2], int(r[1]) + int(r[3]), int(r[2]) + int(r[4]))
+    </annotation>""" % (f, r[0], w, h, r[5], r[1], r[2], int(r[1]) + int(r[3]), int(r[2]) + int(r[4]))
 
 
 for row in csv_f:
